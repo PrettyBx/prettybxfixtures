@@ -10,6 +10,6 @@ if (! function_exists('fixture')) {
 if (! function_exists('faker')) {
     function faker()
     {
-        
+        return container()->make(\PrettyBx\Fixtures\FixtureManager::class)->getFaker();
     }
 }

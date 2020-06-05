@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PrettyBx\Fixtures;
 
 use PrettyBx\Support\Facades\FileManager;
+use Faker\Generator;
 
 class FixtureManager
 {
@@ -58,9 +59,9 @@ class FixtureManager
      * getFaker.
      *
      * @access	public
-     * @return	mixed
+     * @return	Generator
      */
-    public function getFaker()
+    public function getFaker(): Generator
     {
         if (empty($this->faker)) {
             $this->faker = \Faker\Factory::create();
