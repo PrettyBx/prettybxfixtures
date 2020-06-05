@@ -1,0 +1,36 @@
+{
+    "name": "prettybx/fixtures",
+    "description": "Pretty Bitrix Fixtures",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Artem Prozorov",
+            "email": "artem.g.prozorov@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "prettybx/support": ">=0.0.2",
+        "fzaninotto/faker": "^1.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=8.5"
+    },
+    "autoload": {
+        "files": [
+            "helpers.php"
+        ],
+        "psr-4": {
+            "PrettyBx\\Fixtures\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PrettyBx\\Fixtures\\Tests\\": "tests/Unit"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
