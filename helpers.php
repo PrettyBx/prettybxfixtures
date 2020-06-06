@@ -1,15 +1,15 @@
 <?php
 
 if (! function_exists('fixture')) {
-    function fixture(string $code, array $additional = [])
+    function fixture()
     {
-        return container()->make(\PrettyBx\Fixtures\FixtureManager::class)->fixture($code, $additional);
+        return container()->make(\PrettyBx\Fixtures\FixtureManager::class);
     }
 }
 
 if (! function_exists('faker')) {
     function faker()
     {
-        return container()->make(\PrettyBx\Fixtures\FixtureManager::class)->getFaker();
+        return \PrettyBx\Fixtures\FixtureManager::getFaker();
     }
 }

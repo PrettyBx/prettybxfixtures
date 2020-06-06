@@ -26,7 +26,7 @@ class FixtureTest extends BaseTestCase
         $this->expectException(\InvalidArgumentException::class);
 
         $manager = new FixtureManager(__DIR__);
-        $manager->fixture('fake.fixture');
+        $manager->make('fake.fixture');
     }
 
     /**
@@ -34,7 +34,11 @@ class FixtureTest extends BaseTestCase
      */
     public function fixture_returns_correct_data()
     {
-        $expected = ['expected' => 'data'];
+        $expected = [
+            'ID' => faker()->randomDigit,
+            'FIRST_NAME' => faker()->firstName,
+            'LAST_NAME' => faker()->lastName,
+        ];
 
         FileManager::shouldReceive('exists')->with(__DIR__)->andReturn(true);
         FileManager::shouldReceive('exists')->with($this->filepath)->andReturn(true);
@@ -42,8 +46,12 @@ class FixtureTest extends BaseTestCase
 
         $manager = new FixtureManager(__DIR__);
 
-        $data = $manager->fixture('fake.fixture');
+        $fixture = $manager->make('fake.fixture');
 
-        $this->assertEquals($expected, $data);
+        $this->assertEquals($expected, $fixture);
+
+        $fixtures = $manager->makeMany('fake.fixture', 2);
+
+        $this->assertEquals([$expected, $expected], $fixtures);
     }
 }

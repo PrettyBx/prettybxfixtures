@@ -17,7 +17,7 @@ class FixtureManager
     /**
      * @var  $faker
      */
-    protected $faker;
+    protected static $faker;
 
     public function __construct(string $folder)
     {
@@ -36,7 +36,7 @@ class FixtureManager
      * @param	array 	$additional	Default: []
      * @return	array
      */
-    public function fixture(string $code, array $additional = []): array
+    public function make(string $code, array $additional = []): array
     {
         $code = str_replace('.', '/', $code);
 
@@ -56,17 +56,39 @@ class FixtureManager
     }
 
     /**
+     * makeMany.
+     *
+     * @access	public
+     * @param	string	$code      	
+     * @param	int   	$quantity  	
+     * @param	array 	$additional	Default: []
+     * @return	array
+     */
+    public function makeMany(string $code, int $quantity, array $additional = []): array
+    {
+        $data = [];
+
+        while ($quantity > 0) {
+            $data[] = $this->make($code, $additional);
+
+            --$quantity;
+        }
+
+        return $data;
+    }
+
+    /**
      * getFaker.
      *
      * @access	public
      * @return	Generator
      */
-    public function getFaker(): Generator
+    public static function getFaker(): Generator
     {
-        if (empty($this->faker)) {
-            $this->faker = \Faker\Factory::create();
+        if (empty(static::$faker)) {
+            static::$faker = \Faker\Factory::create();
         }
 
-        return $this->faker;
+        return static::$faker;
     }
 }
