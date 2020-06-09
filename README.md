@@ -1,5 +1,6 @@
 # Фикстуры для тестирования
 
+![Phpunit](https://github.com/artem-prozorov/prettybxfixtures/workflows/Phpunit/badge.svg)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/artem-prozorov/prettybxfixtures/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/artem-prozorov/prettybxfixtures/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/artem-prozorov/prettybxfixtures/badges/build.png?b=master)](https://scrutinizer-ci.com/g/artem-prozorov/prettybxfixtures/build-status/master)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/artem-prozorov/prettybxfixtures/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
